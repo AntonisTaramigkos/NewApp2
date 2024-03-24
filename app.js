@@ -12,11 +12,20 @@ mongoose.connect(process.env.MONGODB_URI)
 
 //MiddleWare
 app.use(express.json())
+//require('dotenv').config();
+
+//Swagger
+const swaggerUi = require('swagger-ui-express');
+const swaggerDocument = require('./swagger');
 
 const user = require("./routers/user.route");
 const userProduct =require("./routers/user.products.routes")
 app.use('/api/users',user)
 app.use('/api/users-products',userProduct)
+app.use('/api-docs', 
+swaggerUi.serve,
+swaggerUi.setup(swaggerDocument.options)
+);
 
 //Running the server
 app.listen(port, ()=>{
