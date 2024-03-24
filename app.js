@@ -11,9 +11,12 @@ mongoose.connect(process.env.MONGODB_URI)
 )
 
 //MiddleWare
+app.use(express.json())
 
 const user = require("./routers/user.route");
+const userProduct =require("./routers/user.products.routes")
 app.use('/api/users',user)
+app.use('/api/users-products',userProduct)
 
 //Running the server
 app.listen(port, ()=>{
