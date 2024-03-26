@@ -6,7 +6,8 @@
   "scripts": {
     "test": "jest",
     "server": "nodemon --env-file=.env server.js",
-    "dev": "nodemon --env-file=.env app.js"
+    "dev": "nodemon --env-file=.env app.js",
+    //"run" : 
   },
   "jest":{
     "collectCoverage":true,
